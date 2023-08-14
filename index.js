@@ -7,11 +7,15 @@ arr.forEach(button => {
     button.addEventListener('click', (e) => {
         if(e.target.value == '='){
             expression = eval(expression)
-            input.value = expression;
+            if(isNaN(expression)){
+                expression ='';
+                input.value = expression;
+            }
+            else
+                input.value = expression;   
         }
         else if(e.target.value == 'RESET'){
             expression = '';
-            console.log('inside',expression)
             input.value = expression;
         }
         else if(e.target.value == 'DEL'){
