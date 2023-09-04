@@ -8,11 +8,19 @@ arr.forEach(button => {
         if(e.target.value == '='){
             expression = eval(expression)
             if(isNaN(expression)){
-                expression ='';
+                expression =''; 
                 input.value = expression;
             }
             else
                 input.value = expression;   
+        }
+        else if(expression === "" && e.target.value === "0"){
+                expression='';
+                input.value = expression;
+        }
+        else if(expression === '' && e.target.value === "."){
+            expression = '0.'
+            input.value = expression;
         }
         else if(e.target.value == 'RESET'){
             expression = '';
